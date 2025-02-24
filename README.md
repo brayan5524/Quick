@@ -147,12 +147,11 @@
 ### - CSV
 ### - JSON
 
-## Cuando es un JSON, se especifica en cada URL que es un JSON (en el POST y en los dos GET que aparecen en la documentación).
-## Cuando es un CSV, solo se especifica en la URL como un POST. En el resto de los casos, se toma por defecto como CSV,
-## así que solo necesitas especificar JSON si es necesario.
+### Cuando es un JSON, se especifica en cada URL que es un JSON (en el POST y en los dos GET que aparecen en la documentación).
+### Cuando es un CSV, solo se especifica en la URL como un POST. (no es necesario en los GET)
 
 #---------------------------------------------------------------------------------------------------
 
 # Django Filters
 
-## Cada API utilizada en la web tiene `django-filters` con su respectiva ayuda en el diseño para facilitar su uso para los desarrolladores.
+### Cada API utilizada en la web tiene `django-filters` con su respectiva ayuda en el diseño para facilitar su uso para los desarrolladores.
