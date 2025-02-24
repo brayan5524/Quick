@@ -12,7 +12,7 @@ RUN pip install -U drf-yasg[validation]
 
 COPY . .
 
-# Asegurar que celery está en PATH
+
 RUN which celery
 
 CMD ["gunicorn", "quick.wsgi:application", "--bind", "0.0.0.0:8000"]

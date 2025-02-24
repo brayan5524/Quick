@@ -1,7 +1,7 @@
 import django_filters
 from django import forms
 from apps.users.models import User
-from apps.restaurants.models import Restaurante  # 🔹 Importamos el modelo correctamente
+from apps.restaurants.models import Restaurante
 
 class RestaurantsFilter(django_filters.FilterSet):
     """Filtro avanzado para usuarios con widgets mejorados"""
@@ -14,7 +14,6 @@ class RestaurantsFilter(django_filters.FilterSet):
         widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Dirección'})
     )
     rating = django_filters.NumberFilter(
-        lookup_expr='gte',  # Filtra por calificación mayor o igual a un valor
         widget=forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Calificación mínima'})
     )
     category = django_filters.CharFilter(
@@ -26,11 +25,9 @@ class RestaurantsFilter(django_filters.FilterSet):
         widget=forms.Select(attrs={'class': 'form-select'}),
     )
     created_at = django_filters.DateTimeFilter(
-        lookup_expr='gte',  # Filtra por fecha de creación mayor o igual a una fecha
         widget=forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
     )
     updated_at = django_filters.DateTimeFilter(
-        lookup_expr='gte',  # Filtra por fecha de actualización mayor o igual a una fecha
         widget=forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
     )
     class Meta:

@@ -30,7 +30,7 @@ class RestaurantAPITestCase(BaseAPITestCase):
                 "latitude": 40.7128,
                 "longitude": -74.0060
             },
-            format="json"  # 🔹 Esto asegura que se envíen como JSON
+            format="json"
         )
-        print("Response Data:", response.data)  # 🔹 Imprimir la respuesta de la API
+        print("Response Data:", response.data)
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)

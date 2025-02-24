@@ -1,7 +1,7 @@
 import django_filters
 from django import forms
 from apps.users.models import User
-from apps.restaurants.models import Restaurante  # 🔹 Importamos el modelo correctamente
+from apps.restaurants.models import Restaurante
 
 class UserFilter(django_filters.FilterSet):
     """Filtro avanzado para usuarios con widgets mejorados"""
@@ -34,11 +34,9 @@ class UserFilter(django_filters.FilterSet):
         widget=forms.Select(attrs={'class': 'form-select'}),
     )
     created_at = django_filters.DateFilter(
-        lookup_expr='gte',
         widget=forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
     )
     last_login = django_filters.DateFilter(
-        lookup_expr='gte',
         widget=forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
     )
 

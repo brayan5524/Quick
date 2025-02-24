@@ -43,7 +43,7 @@ schema_view = get_schema_view(
         license=openapi.License(name="MIT License"),
     ),
     public=True,
-    permission_classes=[AllowAny],  # 🔹 Se asegura de que Swagger no pida autenticación
+    permission_classes=[AllowAny],  # Se asegura de que Swagger no pida autenticación
 )
 
 urlpatterns = [

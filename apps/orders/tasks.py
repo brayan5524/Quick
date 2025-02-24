@@ -26,7 +26,7 @@ def get_report_path(month, format):
             'format': openapi.Schema(type=openapi.TYPE_STRING, enum=['csv', 'json'])
         }
     ),
-    security=[],  # 🔹 No requiere autenticación en Swagger
+    security=[],  # No requiere autenticación en Swagger
     manual_parameters=[],
     responses={200: "Reporte en proceso", 400: "Error al generar reporte"}
 )

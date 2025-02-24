@@ -46,7 +46,7 @@ class UserAPITestCase(BaseAPITestCase):
                 "default_address" : "test",
                 "typology": "dealer"
             },
-            format="json"  # 🔹 Esto asegura que se envíen como JSON
+            format="json"
         )
         print("Response Data:", response.data)
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)

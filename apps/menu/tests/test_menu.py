@@ -27,9 +27,9 @@ class MenuAPITestCase(BaseAPITestCase):
                 "preparation_time": 10,
                 "category": "Fast Food",
                 "image_url": "http://example.com/burger.jpg",
-                "restaurant": 1  # ID de restaurante válido
+                "restaurant": 1
             },
-            format="json"  # 🔹 Esto asegura que se envíen como JSON
+            format="json"
         )
         print("Response Data:", response.data)
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)

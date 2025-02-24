@@ -15,11 +15,9 @@ class MenuItemFilter(django_filters.FilterSet):
         widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Descripción'}),
     )
     price = django_filters.NumberFilter(
-        lookup_expr='gte',
         widget=forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Precio mínimo'}),
     )
     preparation_time = django_filters.NumberFilter(
-        lookup_expr='lte',
         widget=forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Tiempo de preparación máximo (minutos)'}),
     )
     category = django_filters.CharFilter(
@@ -27,7 +25,6 @@ class MenuItemFilter(django_filters.FilterSet):
         widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Categoría'}),
     )
     created_at = django_filters.DateTimeFilter(
-        lookup_expr='gte',
         widget=forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
     )
     restaurant = django_filters.ModelChoiceFilter(

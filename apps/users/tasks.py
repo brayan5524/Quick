@@ -20,8 +20,7 @@ from drf_yasg import openapi
         },
         required=['file']
     ),
-    security=[],  # 🔹 Elimina autenticación en Swagger
-    manual_parameters=[],  # 🔹 No muestra parámetros de autenticación
+    security=[],  # Elimina autenticación en Swagger
     responses={200: "Carga completada", 400: "Error en la carga"}
 )
 
