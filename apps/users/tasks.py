@@ -12,7 +12,7 @@ from drf_yasg import openapi
 
 @swagger_auto_schema(
     method='post',
-    operation_description="Carga masiva de usuarios desde un archivo CSV/XLSX",
+    operation_description="Carga masiva de usuarios desde un archivo CSV/XLSX, maximo 20 usuarios",
     request_body=openapi.Schema(
         type=openapi.TYPE_OBJECT,
         properties={
