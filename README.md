@@ -23,8 +23,7 @@
 ### Luego construye y levanta los contenedores
 
 ``` bash
-    docker compose build
-    docker compose up
+    docker compose up --build
 ```
 
 ## Paso 4: Correr Migraciones
