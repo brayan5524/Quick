@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:6
+    container_name: redis_cache
+    restart: always
+    ports:
+      - "6379:6379"
+
+  web:
+    build: .
+    container_name: django_app
+    restart: always
+    depends_on:
+      - redis
+    environment:
+      - DEBUG=True
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+      - reports_volume:/quick/reports
+      - uploads_volume:/quick/uploads
+      - static_volume:/quick/staticfiles
+
+  worker:
+    build: .
+    container_name: celery_worker
+    restart: always
+    depends_on:
+      - web
+      - redis
+    command: celery -A quick worker --loglevel=info
+    volumes:
+      - .:/app
+      - reports_volume:/quick/reports
+      - uploads_volume:/quick/uploads
+      - static_volume:/quick/staticfiles
+
+  tests:
+    build: .
+    container_name: django_tests
+    command: >
+      sh -c "python -m unittest discover -s apps/users/tests &&
+            python -m unittest discover -s apps/menu/tests &&
+            python -m unittest discover -s apps/orders/tests &&
+            python -m unittest discover -s apps/restaurants/tests"
+
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+
+
+volumes:
+  reports_volume:
+  uploads_volume:
+  static_volume:
